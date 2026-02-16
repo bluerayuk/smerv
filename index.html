@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Wedding Countdown</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
@@ -45,9 +47,17 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      min-height: -webkit-fill-available;
       padding: 40px 20px;
       position: relative;
       overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      touch-action: manipulation;
+    }
+
+    html {
+      height: -webkit-fill-available;
     }
 
     /* Intricate Celtic knotwork background */
@@ -331,8 +341,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       background: rgba(10, 20, 15, 0.5);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -345,6 +355,12 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .audio-button:active {
+      transform: scale(0.95);
     }
 
     .audio-button:hover {
@@ -413,53 +429,121 @@
     }
 
     @media (max-width: 480px) {
-      body::after { top: 8px; left: 8px; right: 8px; bottom: 8px; border-width: 2px; }
-      .corner-illumination { font-size: 2.5em; }
-      .corner-tl, .corner-tr { top: 15px; }
-      .corner-bl, .corner-br { bottom: 15px; }
-      .corner-tl, .corner-bl { left: 15px; }
-      .corner-tr, .corner-br { right: 15px; }
-
-      h1 { font-size: 1.6em; letter-spacing: 2px; margin-bottom: 8px; }
-      .subtitle { font-size: 0.75em; letter-spacing: 3px; margin-bottom: 5px; }
-      .gaelic-blessing { font-size: 0.7em; margin-bottom: 25px; padding: 0 10px; }
-      .gaelic-blessing::before, .gaelic-blessing::after { margin: 0 5px; font-size: 1em; }
+      body { 
+        padding: 20px 15px;
+        justify-content: flex-start;
+        padding-top: 60px;
+      }
       
-      .countdown-frame { padding: 15px; }
+      body::after { top: 8px; left: 8px; right: 8px; bottom: 8px; border-width: 2px; }
+      .corner-illumination { font-size: 2em; }
+      .corner-tl, .corner-tr { top: 12px; }
+      .corner-bl, .corner-br { bottom: 12px; }
+      .corner-tl, .corner-bl { left: 12px; }
+      .corner-tr, .corner-br { right: 12px; }
+
+      .audio-controls { top: 12px; right: 12px; }
+
+      h1 { 
+        font-size: 1.5em; 
+        letter-spacing: 2px; 
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+      .subtitle { 
+        font-size: 0.75em; 
+        letter-spacing: 3px; 
+        margin-bottom: 5px; 
+      }
+      .gaelic-blessing { 
+        font-size: 0.7em; 
+        margin-bottom: 20px; 
+        padding: 0 10px;
+        line-height: 1.4;
+      }
+      .gaelic-blessing::before, 
+      .gaelic-blessing::after { 
+        margin: 0 5px; 
+        font-size: 1em; 
+      }
+      
+      .countdown-frame { padding: 10px; }
       .countdown { 
-        gap: 12px; 
-        padding: 25px 15px;
-        border-width: 3px;
+        gap: 15px; 
+        padding: 30px 20px;
+        border-width: 2px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         max-width: 100%;
-      }
-      .countdown::before { font-size: 1.8em; width: 50px; height: 50px; top: -25px; }
-      .time-section { 
-        min-width: auto;
-        gap: 6px;
         width: 100%;
       }
-      .number { font-size: 2.2em; }
-      .label { font-size: 0.65em; letter-spacing: 1.5px; }
+      .countdown::before { 
+        font-size: 1.5em; 
+        width: 45px; 
+        height: 45px; 
+        top: -22px; 
+      }
+      .time-section { 
+        min-width: auto;
+        gap: 8px;
+        width: 100%;
+      }
+      .number { 
+        font-size: 2.5em;
+        line-height: 1;
+      }
+      .label { 
+        font-size: 0.7em; 
+        letter-spacing: 2px; 
+      }
       .separator { display: none; }
-      .celtic-decoration { font-size: 1.1em; letter-spacing: 15px; bottom: 30px; }
+      .celtic-decoration { 
+        font-size: 1em; 
+        letter-spacing: 15px; 
+        bottom: 15px; 
+      }
     }
 
-    @media (max-width: 360px) {
-      .corner-illumination { font-size: 2em; }
-      h1 { font-size: 1.4em; }
+    @media (max-width: 390px) {
+      body { padding-top: 50px; }
+      
+      .corner-illumination { font-size: 1.8em; }
+      h1 { font-size: 1.3em; }
       .subtitle { font-size: 0.7em; letter-spacing: 2px; }
-      .gaelic-blessing { font-size: 0.65em; }
+      .gaelic-blessing { font-size: 0.65em; margin-bottom: 15px; }
+      .countdown { 
+        gap: 12px; 
+        padding: 25px 15px;
+      }
+      .time-section { gap: 6px; }
+      .number { font-size: 2.2em; }
+      .label { font-size: 0.65em; letter-spacing: 1.5px; }
+      .celtic-decoration { font-size: 0.9em; letter-spacing: 12px; }
+    }
+
+    /* iPhone SE and smaller */
+    @media (max-width: 360px) {
+      body { padding-top: 45px; }
+      
+      .corner-illumination { font-size: 1.6em; }
+      h1 { font-size: 1.2em; }
+      .subtitle { font-size: 0.65em; letter-spacing: 2px; }
+      .gaelic-blessing { font-size: 0.6em; margin-bottom: 12px; }
       .countdown { 
         gap: 10px; 
-        padding: 20px 12px;
+        padding: 22px 12px;
+      }
+      .countdown::before { 
+        font-size: 1.3em; 
+        width: 40px; 
+        height: 40px; 
+        top: -20px; 
       }
       .time-section { gap: 5px; }
       .number { font-size: 2em; }
       .label { font-size: 0.6em; letter-spacing: 1px; }
-      .celtic-decoration { font-size: 1em; letter-spacing: 12px; }
+      .celtic-decoration { font-size: 0.85em; letter-spacing: 10px; bottom: 12px; }
     }
   </style>
 </head>
