@@ -430,100 +430,120 @@
 
     @media (max-width: 480px) {
       body { 
-        padding: 10px;
-        justify-content: center;
-        gap: 0;
+        padding: 20px 15px;
+        justify-content: flex-start;
+        padding-top: 60px;
       }
       
-      body::after { display: none; }
-      .spiral-left, .spiral-right { display: none; }
-      .corner-illumination { font-size: 1.5em; }
-      .corner-tl, .corner-tr { top: 8px; }
-      .corner-bl, .corner-br { bottom: 8px; }
-      .corner-tl, .corner-bl { left: 8px; }
-      .corner-tr, .corner-br { right: 8px; }
+      body::after { top: 8px; left: 8px; right: 8px; bottom: 8px; border-width: 2px; }
+      .corner-illumination { font-size: 2em; }
+      .corner-tl, .corner-tr { top: 12px; }
+      .corner-bl, .corner-br { bottom: 12px; }
+      .corner-tl, .corner-bl { left: 12px; }
+      .corner-tr, .corner-br { right: 12px; }
 
-      .audio-controls { top: 8px; right: 8px; }
+      .audio-controls { top: 12px; right: 12px; }
 
       h1 { 
-        font-size: 1.3em; 
-        letter-spacing: 1px; 
-        margin-bottom: 4px;
-        line-height: 1;
+        font-size: 1.5em; 
+        letter-spacing: 2px; 
+        margin-bottom: 8px;
+        line-height: 1.2;
       }
       .subtitle { 
-        font-size: 0.65em; 
-        letter-spacing: 2px; 
-        margin-bottom: 3px; 
+        font-size: 0.75em; 
+        letter-spacing: 3px; 
+        margin-bottom: 5px; 
       }
       .gaelic-blessing { 
-        display: none;
+        font-size: 0.7em; 
+        margin-bottom: 20px; 
+        padding: 0 10px;
+        line-height: 1.4;
+      }
+      .gaelic-blessing::before, 
+      .gaelic-blessing::after { 
+        margin: 0 5px; 
+        font-size: 1em; 
       }
       
-      .countdown-frame { padding: 5px; }
+      .countdown-frame { padding: 10px; }
       .countdown { 
-        gap: 10px; 
-        padding: 25px 15px 20px 15px;
+        gap: 15px; 
+        padding: 30px 20px;
         border-width: 2px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         max-width: 100%;
-        width: calc(100% - 20px);
+        width: 100%;
       }
       .countdown::before { 
-        font-size: 1.2em; 
-        width: 35px; 
-        height: 35px; 
-        top: -18px; 
+        font-size: 1.5em; 
+        width: 45px; 
+        height: 45px; 
+        top: -22px; 
       }
       .time-section { 
         min-width: auto;
-        gap: 4px;
+        gap: 8px;
         width: 100%;
       }
       .number { 
-        font-size: 2em;
+        font-size: 2.5em;
         line-height: 1;
       }
       .label { 
-        font-size: 0.6em; 
-        letter-spacing: 1px; 
+        font-size: 0.7em; 
+        letter-spacing: 2px; 
       }
       .separator { display: none; }
       .celtic-decoration { 
-        display: none;
+        font-size: 1em; 
+        letter-spacing: 15px; 
+        bottom: 15px; 
       }
     }
 
     @media (max-width: 390px) {
-      h1 { font-size: 1.2em; }
-      .subtitle { font-size: 0.6em; }
+      body { padding-top: 50px; }
+      
+      .corner-illumination { font-size: 1.8em; }
+      h1 { font-size: 1.3em; }
+      .subtitle { font-size: 0.7em; letter-spacing: 2px; }
+      .gaelic-blessing { font-size: 0.65em; margin-bottom: 15px; }
       .countdown { 
-        gap: 8px; 
-        padding: 20px 12px 18px 12px;
+        gap: 12px; 
+        padding: 25px 15px;
       }
-      .number { font-size: 1.8em; }
-      .label { font-size: 0.55em; }
+      .time-section { gap: 6px; }
+      .number { font-size: 2.2em; }
+      .label { font-size: 0.65em; letter-spacing: 1.5px; }
+      .celtic-decoration { font-size: 0.9em; letter-spacing: 12px; }
     }
 
+    /* iPhone SE and smaller */
     @media (max-width: 360px) {
-      .corner-illumination { font-size: 1.3em; }
-      h1 { font-size: 1.1em; margin-bottom: 3px; }
-      .subtitle { font-size: 0.55em; letter-spacing: 1px; }
+      body { padding-top: 45px; }
+      
+      .corner-illumination { font-size: 1.6em; }
+      h1 { font-size: 1.2em; }
+      .subtitle { font-size: 0.65em; letter-spacing: 2px; }
+      .gaelic-blessing { font-size: 0.6em; margin-bottom: 12px; }
       .countdown { 
-        gap: 6px; 
-        padding: 18px 10px 16px 10px;
+        gap: 10px; 
+        padding: 22px 12px;
       }
       .countdown::before { 
-        font-size: 1em; 
-        width: 32px; 
-        height: 32px; 
-        top: -16px; 
+        font-size: 1.3em; 
+        width: 40px; 
+        height: 40px; 
+        top: -20px; 
       }
-      .time-section { gap: 3px; }
-      .number { font-size: 1.6em; }
-      .label { font-size: 0.5em; }
+      .time-section { gap: 5px; }
+      .number { font-size: 2em; }
+      .label { font-size: 0.6em; letter-spacing: 1px; }
+      .celtic-decoration { font-size: 0.85em; letter-spacing: 10px; bottom: 12px; }
     }
   </style>
 </head>
