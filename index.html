@@ -430,72 +430,71 @@
 
     @media (max-width: 480px) {
       body { 
-        padding: 5px;
+        padding: 10px;
         justify-content: center;
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
+        gap: 0;
       }
       
       body::after { display: none; }
       .spiral-left, .spiral-right { display: none; }
-      .corner-illumination { display: none; }
+      .corner-illumination { font-size: 1.5em; }
+      .corner-tl, .corner-tr { top: 8px; }
+      .corner-bl, .corner-br { bottom: 8px; }
+      .corner-tl, .corner-bl { left: 8px; }
+      .corner-tr, .corner-br { right: 8px; }
 
-      .audio-controls { top: 5px; right: 5px; }
-      .audio-button { width: 36px; height: 36px; }
+      .audio-controls { top: 8px; right: 8px; }
 
       h1 { 
-        font-size: 1.1em; 
-        letter-spacing: 0.5px; 
-        margin-bottom: 2px;
+        font-size: 1.3em; 
+        letter-spacing: 1px; 
+        margin-bottom: 4px;
         line-height: 1;
       }
       .subtitle { 
-        font-size: 0.55em; 
-        letter-spacing: 1px; 
-        margin-bottom: 2px; 
+        font-size: 0.65em; 
+        letter-spacing: 2px; 
+        margin-bottom: 3px; 
       }
       .gaelic-blessing { 
         display: none;
       }
       
-      .countdown-frame { padding: 0; }
+      .countdown-frame { padding: 5px; }
       .countdown { 
-        gap: 4px; 
-        padding: 20px 5px 15px 5px;
-        border-width: 1px;
+        gap: 8px; 
+        padding: 25px 10px 20px 10px;
+        border-width: 2px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         max-width: 100%;
-        width: 100%;
+        width: calc(100% - 10px);
       }
       .countdown::before { 
-        font-size: 1em; 
-        width: 30px; 
-        height: 30px; 
-        top: -15px; 
+        font-size: 1.2em; 
+        width: 35px; 
+        height: 35px; 
+        top: -18px; 
       }
       .time-section { 
         min-width: auto;
-        gap: 2px;
-        flex: 0 1 auto;
+        gap: 3px;
+        flex: 1;
       }
       .number { 
-        font-size: 1.3em;
+        font-size: 1.6em;
         line-height: 1;
       }
       .label { 
-        font-size: 0.42em; 
-        letter-spacing: 0.3px;
-        white-space: nowrap;
+        font-size: 0.5em; 
+        letter-spacing: 0.5px; 
       }
       .separator { 
         display: block;
-        font-size: 1.1em;
-        margin: 0 1px;
-        align-self: flex-start;
-        margin-top: 0;
+        font-size: 1.4em;
+        margin: 0 -2px;
       }
       .celtic-decoration { 
         display: none;
@@ -503,34 +502,35 @@
     }
 
     @media (max-width: 390px) {
-      h1 { font-size: 1em; }
-      .subtitle { font-size: 0.5em; }
+      h1 { font-size: 1.2em; }
+      .subtitle { font-size: 0.6em; }
       .countdown { 
-        gap: 3px; 
-        padding: 18px 4px 14px 4px;
+        gap: 6px; 
+        padding: 20px 8px 18px 8px;
       }
-      .number { font-size: 1.2em; }
-      .label { font-size: 0.4em; }
-      .separator { font-size: 1em; margin: 0; }
+      .number { font-size: 1.5em; }
+      .label { font-size: 0.48em; }
+      .separator { font-size: 1.3em; }
     }
 
     @media (max-width: 360px) {
-      h1 { font-size: 0.95em; margin-bottom: 1px; }
-      .subtitle { font-size: 0.48em; letter-spacing: 0.5px; }
+      .corner-illumination { font-size: 1.3em; }
+      h1 { font-size: 1.1em; margin-bottom: 3px; }
+      .subtitle { font-size: 0.55em; letter-spacing: 1px; }
       .countdown { 
-        gap: 2px; 
-        padding: 16px 3px 12px 3px;
+        gap: 4px; 
+        padding: 18px 6px 16px 6px;
       }
       .countdown::before { 
-        font-size: 0.9em; 
-        width: 28px; 
-        height: 28px; 
-        top: -14px; 
+        font-size: 1em; 
+        width: 32px; 
+        height: 32px; 
+        top: -16px; 
       }
-      .time-section { gap: 1px; }
-      .number { font-size: 1.1em; }
-      .label { font-size: 0.38em; }
-      .separator { font-size: 0.9em; }
+      .time-section { gap: 2px; }
+      .number { font-size: 1.4em; }
+      .label { font-size: 0.45em; }
+      .separator { font-size: 1.2em; margin: 0 -3px; }
     }
   </style>
 </head>
