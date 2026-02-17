@@ -42,10 +42,10 @@
       color: #e8dcc4;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
-      padding: 40px 20px;
+      padding: 130px 20px 10px;
       position: relative;
       overflow: hidden;
     }
@@ -161,7 +161,7 @@
       font-size: 1.1em;
       color: #c9a961;
       font-style: italic;
-      margin-bottom: 50px;
+      margin-bottom: 15px;
       letter-spacing: 2px;
       position: relative;
       z-index: 3;
@@ -415,8 +415,9 @@
     /* iPhone optimised: all 4 units inline, as large as possible */
     @media (max-width: 480px) {
       body {
-        padding: 20px 8px;
-        justify-content: center;
+        padding: 0 8px;
+        justify-content: flex-start;
+        padding-top: 0;
       }
       body::after { top: 6px; left: 6px; right: 6px; bottom: 6px; border-width: 2px; }
       .corner-illumination { font-size: 2em; }
@@ -425,9 +426,9 @@
       .corner-tl, .corner-bl { left: 12px; }
       .corner-tr, .corner-br { right: 12px; }
 
-      h1 { font-size: clamp(1.1em, 5.5vw, 2em); letter-spacing: 1px; margin-bottom: 8px; }
-      .subtitle { font-size: clamp(0.65em, 3vw, 0.9em); letter-spacing: 3px; margin-bottom: 5px; }
-      .gaelic-blessing { font-size: clamp(0.65em, 2.8vw, 0.8em); margin-bottom: 20px; padding: 0 10px; }
+      h1 { font-size: clamp(1.1em, 5.5vw, 2em); letter-spacing: 1px; margin-bottom: 2px; }
+      .subtitle { font-size: clamp(0.65em, 3vw, 0.9em); letter-spacing: 3px; margin-bottom: 2px; }
+      .gaelic-blessing { font-size: clamp(0.65em, 2.8vw, 0.8em); margin-bottom: 4px; padding: 0 10px; }
       .gaelic-blessing::before, .gaelic-blessing::after { margin: 0 6px; }
       
       .countdown-frame { padding: 10px 4px; width: 100%; }
@@ -474,6 +475,81 @@
       .number { font-size: clamp(1.8em, 10vw, 2.8em); }
       .separator { font-size: clamp(1.3em, 6vw, 2em); }
     }
+
+    /* Hero portrait */
+    .hero-portrait {
+      position: relative;
+      z-index: 3;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .portrait-frame {
+      position: relative;
+      display: inline-block;
+    }
+
+    .portrait-frame::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 3px solid rgba(212, 175, 55, 0.7);
+      border-radius: 12px;
+      background: 
+        linear-gradient(to right, #d4af37 4px, transparent 4px) 0 0,
+        linear-gradient(to right, #d4af37 4px, transparent 4px) 0 100%,
+        linear-gradient(to bottom, #d4af37 4px, transparent 4px) 0 0,
+        linear-gradient(to bottom, #d4af37 4px, transparent 4px) 100% 0;
+      background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+      background-size: 20px 3px, 20px 3px, 3px 20px, 3px 20px;
+      animation: shimmerBorder 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .portrait-frame::after {
+      content: '❦';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.4em;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+      z-index: 2;
+      animation: illuminateGold 3s ease-in-out infinite;
+    }
+
+    .portrait-img {
+      display: block;
+      width: 260px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 8px;
+      box-shadow:
+        0 0 40px rgba(212, 175, 55, 0.25),
+        0 8px 32px rgba(0, 0, 0, 0.7);
+      filter: sepia(15%) contrast(1.05) brightness(0.95);
+    }
+
+    .portrait-caption {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.85em;
+      color: #c9a961;
+      letter-spacing: 3px;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 480px) {
+      .portrait-img { width: 200px; height: 250px; }
+      .portrait-caption { font-size: 0.75em; letter-spacing: 2px; }
+    }
+
   </style>
 </head>
 <body>
@@ -521,6 +597,13 @@
   </div>
   
   <div class="celtic-decoration">☘ ☘ ☘</div>
+
+  <div class="hero-portrait">
+    <div class="portrait-frame">
+      <img class="portrait-img" src="groom.jpg" alt="The Groom" />
+    </div>
+    <div class="portrait-caption">The Groom</div>
+  </div>
 
   <script>
     // Audio playback for 1.mp3
